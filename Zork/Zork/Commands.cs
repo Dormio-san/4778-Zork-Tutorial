@@ -10,6 +10,7 @@ namespace Zork
         SOUTH,
         EAST,
         WEST,
-        UNKNOWN
+        UNKNOWN,
+        HELLO
     }
 }
