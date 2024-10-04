@@ -24,6 +24,9 @@ namespace Zork
 
             Console.WriteLine($"Welcome to Zork!");
 
+            // The previous room the player was in (used for auto displaying room descriptions).
+            Room previousRoom = null;
+
             // Variable that has a reference to the Commands enum, and has a default value of UNKNOWN.
             Commands command = Commands.UNKNOWN;
 
@@ -32,6 +35,13 @@ namespace Zork
             {
                 // Indicate to the player where they currently are.
                 Console.WriteLine($"Location: {currentRoom}");
+
+                if (previousRoom != currentRoom)
+                {
+                    // If the player has moved to a new room, print the description of the new room.
+                    Console.WriteLine(currentRoom.Description);
+                    previousRoom = currentRoom;
+                }
 
                 // Ask for input. The > helps convey to the player that they need to input something.
                 Console.Write("> ");
@@ -149,20 +159,30 @@ namespace Zork
             // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
             // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
 
-            // First row.
-            rooms[0, 0].Description = "You are on a rock-strewn trail."; // Rocky Trail
-            rooms[0, 1].Description = "You are facing the south side of a white house.\nThere is no door here, and all the windows are barred."; // South of House
-            rooms[0, 2].Description = "You are at the top of the Great Canyon on its south wall."; // Canyon View
+            // Create a dictionary that stores the name of each room and the room itself. The string room name is the key and the room object is the value.
+            // Doing this makes it easier to reference the rooms, making the code more readable and maintainable.
+            var roomMap = new Dictionary<string, Room>();
+            foreach (Room room in rooms)
+            {
+                // Searches the dictionary for the following key and overwrites the value with the one on the right.
+                // If the key is not found, it adds the key and value to the dictionary.
+                roomMap[room.Name] = room;
 
-            // Second row.
-            rooms[1, 0].Description = "This is a forest, with trees in all directions around you."; // Forest
-            rooms[1, 1].Description = "This is an open field west of a white house, with a boarded front door."; // West of House
-            rooms[1, 2].Description = "You are behind the white house.\nIn one corner of the house there is a small window which is slightly ajar."; // Behind House
+                // Another way to add to the dictionary, but this will throw a System.ArgumentException if the key already exists.
+                // Either will work because we are starting with an empty dictionary, but the first way is safer.
+                //roomMap.Add(room.Name, room);
+            }
 
-            // Thid row.
-            rooms[2, 0].Description = "This is a dimly lit forest, with large trees all around.\nTo the east, there appears to be sunlight."; // Dense Woods
-            rooms[2, 1].Description = "You are facing the north side of a white house.\nThere is no door here, and all the windows are barred."; // North of House
-            rooms[2, 2].Description = "You are in a clearing, with a forest surrounding you on the west and south."; // Clearing
+            // Assign each room a description.
+            roomMap["Rocky Trail"].Description = "You are on a rock-strewn trail.";
+            roomMap["South of House"].Description = "You are facing the south side of a white house.\nThere is no door here, and all the windows are barred.";
+            roomMap["Canyon View"].Description = "You are at the top of the Great Canyon on its south wall.";
+            roomMap["Forest"].Description = "This is a forest, with trees in all directions around you.";
+            roomMap["West of House"].Description = "This is an open field west of a white house, with a boarded front door.";
+            roomMap["Behind House"].Description = "You are behind the white house.\nIn one corner of the house there is a small window which is slightly ajar.";
+            roomMap["Dense Woods"].Description = "This is a dimly lit forest, with large trees all around.\nTo the east, there appears to be sunlight.";
+            roomMap["North of House"].Description = "You are facing the north side of a white house.\nThere is no door here, and all the windows are barred.";
+            roomMap["Clearing"].Description = "You are in a clearing, with a forest surrounding you on the west and south.";
         }
     }
 }
