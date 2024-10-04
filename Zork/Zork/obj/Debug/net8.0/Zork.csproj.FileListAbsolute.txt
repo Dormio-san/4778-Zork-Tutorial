@@ -1,0 +1,14 @@
+S:\NETCore\Zork\Zork\bin\Debug\net8.0\Zork.exe
+S:\NETCore\Zork\Zork\bin\Debug\net8.0\Zork.deps.json
+S:\NETCore\Zork\Zork\bin\Debug\net8.0\Zork.runtimeconfig.json
+S:\NETCore\Zork\Zork\bin\Debug\net8.0\Zork.dll
+S:\NETCore\Zork\Zork\bin\Debug\net8.0\Zork.pdb
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.GeneratedMSBuildEditorConfig.editorconfig
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.AssemblyInfoInputs.cache
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.AssemblyInfo.cs
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.csproj.CoreCompileInputs.cache
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.dll
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\refint\Zork.dll
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.pdb
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\Zork.genruntimeconfig.cache
+S:\NETCore\Zork\Zork\obj\Debug\net8.0\ref\Zork.dll
