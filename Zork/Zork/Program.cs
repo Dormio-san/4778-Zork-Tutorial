@@ -5,20 +5,18 @@ namespace Zork
 {
     class Program
     {
-        private static string[] rooms =
+        private static string[,] rooms =
         {
-            "Forest",
-            "West of House",
-            "Behind House",
-            "Clearing",
-            "Canyon View"
+            { "Rocky Trail", "South of House", "Canyon View" },
+            { "Forest", "West of House", "Behind House" },
+            { "Dense Woods", "North of House", "Clearing" }
         };
 
-        private static int currentRoom = 1;
+        private static (int row, int column) currentLocation = (1,1);
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"Welcome to Zork!\nYou are {rooms[currentRoom]}.");
+            Console.WriteLine($"Welcome to Zork!\nLocation: {rooms[currentLocation.row, currentLocation.column]}.");
 
             // Variable that has a reference to the Commands enum, and has a default value of UNKNOWN.
             Commands command = Commands.UNKNOWN;
@@ -54,7 +52,7 @@ namespace Zork
                         if(!Move(command))
                         {
                             Console.WriteLine("The way is shut!");
-                            Console.WriteLine($"Location: {rooms[currentRoom]}");
+                            Console.WriteLine($"Location: {rooms[currentLocation.row,currentLocation.column]}");
                         }
                         break;
                     default:
@@ -79,49 +77,37 @@ namespace Zork
             }
 
             // Bool used to indicate if the movement was successful.
-            bool movementSuccessful = false;
+            bool movementSuccessful = true;
 
             switch (command)
             {
-                // If north or south, not implemented yet, so return false.
-                case Commands.NORTH:
-                case Commands.SOUTH:
-                    movementSuccessful = false;
+                case Commands.NORTH when currentLocation.row < rooms.GetLength(0) - 1:
+                    // If player isn't at the last row (highest row number), move them north, print the direction they moved
+                    // and what room they moved to.
+                    currentLocation.row++;
+                    Console.WriteLine($"You moved {command.ToString().ToLower()} to {rooms[currentLocation.row, currentLocation.column]}.");
                     break;
-                case Commands.EAST:
-                    if (currentRoom == rooms.Length - 1)
-                    {
-                        // If the player is at the last room, they can't move more east, so return false.
-                        movementSuccessful = false;
-                        break;
-                    }
-                    else
-                    {
-                        // If player isn't at the last room, move them east, print the direction they moved
-                        // and what room they moved to, and return true.
-                        currentRoom = currentRoom + 1;
-                        Console.WriteLine($"You moved {command.ToString().ToLower()} to {rooms[currentRoom]}.");
-                        movementSuccessful = true;
-                        break;
-                    }
-                case Commands.WEST:
-                    if (currentRoom == 0)
-                    {
-                        // If the player is at the last room, they can't move more west, so return false.
-                        movementSuccessful = false;
-                        break;
-                    }
-                    else
-                    {
-                        // If player isn't at the last room, move them west, print the direction they moved
-                        // and what room they moved to, and return true.
-                        currentRoom = currentRoom - 1;
-                        Console.WriteLine($"You moved {command.ToString().ToLower()} to {rooms[currentRoom]}.");
-                        movementSuccessful = true;
-                        break;
-                    }
+                case Commands.SOUTH when currentLocation.row > 0:
+                    // If player isn't at the last row (lowest row number), move them south, print the direction they moved
+                    // and what room they moved to.
+                    currentLocation.row--;
+                    Console.WriteLine($"You moved {command.ToString().ToLower()} to {rooms[currentLocation.row, currentLocation.column]}.");
+                    break;
+                case Commands.EAST when currentLocation.column < rooms.GetLength(1) - 1:
+                    // If player isn't at the last column (highest number column), move them east, print the direction they moved
+                    // and what room they moved to.
+                    currentLocation.column++;
+                    Console.WriteLine($"You moved {command.ToString().ToLower()} to {rooms[currentLocation.row, currentLocation.column]}.");
+                    break;
+                case Commands.WEST when currentLocation.column > 0:
+                    // If player isn't at the last column (lowest number column), move them west, print the direction they moved
+                    // and what room they moved to.
+                    currentLocation.column--;
+                    Console.WriteLine($"You moved {command.ToString().ToLower()} to {rooms[currentLocation.row, currentLocation.column]}.");
+                    break;
                 default:
-                    Console.WriteLine("Are you serious right neow?\a\nI don't recognize that command.");
+                    // If none of the above conditions are met, the movement was not successful.
+                    movementSuccessful = false;
                     break;
             }
             // Return whether or not the move was successful.
