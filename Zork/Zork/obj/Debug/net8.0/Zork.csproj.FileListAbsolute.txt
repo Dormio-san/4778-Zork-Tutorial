@@ -27,3 +27,4 @@ S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\ref
 S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.pdb
 S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.genruntimeconfig.cache
 S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\ref\Zork.dll
+S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Rooms.txt

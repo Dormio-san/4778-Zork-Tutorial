@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Zork
 {
@@ -14,13 +15,34 @@ namespace Zork
             get => rooms[currentLocation.row, currentLocation.column];
         }
 
+        // Create a dictionary that stores the name of each room and the room itself. The string room name is the key and the room object is the value.
+        // Doing this makes it easier to reference the rooms, making the code more readable and maintainable.
+        private static readonly Dictionary<string, Room> roomMap;
+
+        // Static constructor that runs before the Main method, ensuring that any code that needs the dictoinary gets it once it has already been populated.
+        static Program()
+        {            
+            roomMap = new Dictionary<string, Room>();
+            foreach (Room room in rooms)
+            {
+                // Searches the dictionary for the following key and overwrites the value with the one on the right.
+                // If the key is not found, it adds the key and value to the dictionary.
+                roomMap[room.Name] = room;
+
+                // Another way to add to the dictionary, but this will throw a System.ArgumentException if the key already exists.
+                // Either will work because we are starting with an empty dictionary, but the first way is safer.
+                //roomMap.Add(room.Name, room);
+            }
+        }
+
         // Tuple that holds the current location of the player.
         // More on tuples here: https://docs.microsoft.com/en-us/dotnet/csharp/tuples.
         private static (int row, int column) currentLocation = (1, 1);
 
         private static void Main(string[] args)
         {
-            InitializeRoomDescriptions();
+            string roomsFilename = "Rooms.txt";
+            InitializeRoomDescriptions(roomsFilename);
 
             Console.WriteLine($"Welcome to Zork!");
 
@@ -154,35 +176,42 @@ namespace Zork
             { new Room("Dense Woods"), new Room("North of House"), new Room("Clearing") }
         };
 
-        private static void InitializeRoomDescriptions()
+        private static void InitializeRoomDescriptions(string roomsFilename)
         {
-            // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
-            // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
+            // Const variables that will not change for the delimiter and the expected number of fields.
+            const string fieldDelimiter = "##";
+            const int expectedFieldCount = 2;
 
-            // Create a dictionary that stores the name of each room and the room itself. The string room name is the key and the room object is the value.
-            // Doing this makes it easier to reference the rooms, making the code more readable and maintainable.
-            var roomMap = new Dictionary<string, Room>();
-            foreach (Room room in rooms)
+            // Reads all of the lines in the text file and stores them in an array of strings.
+            string[] lines = File.ReadAllLines(roomsFilename);
+
+            // Iterates through the array and does things for each line.
+            foreach (string line in lines)
             {
-                // Searches the dictionary for the following key and overwrites the value with the one on the right.
-                // If the key is not found, it adds the key and value to the dictionary.
-                roomMap[room.Name] = room;
+                // Splits the line into an array of strings based on the field delimiter. In this case, array index 0 is the name and array index 1 is the description.
+                string[] fields = line.Split(fieldDelimiter);
 
-                // Another way to add to the dictionary, but this will throw a System.ArgumentException if the key already exists.
-                // Either will work because we are starting with an empty dictionary, but the first way is safer.
-                //roomMap.Add(room.Name, room);
+                // This ensures that the line has the expected number of fields. If it doesn't, it throws an exception.
+                if (fields.Length != expectedFieldCount)
+                {
+                    throw new InvalidDataException($"Invalid record: {line}");
+                }
+
+                string name = fields[(int)Fields.Name];
+                string description = fields[(int)Fields.Description];
+
+                roomMap[name].Description = description;
             }
 
-            // Assign each room a description.
-            roomMap["Rocky Trail"].Description = "You are on a rock-strewn trail.";
-            roomMap["South of House"].Description = "You are facing the south side of a white house.\nThere is no door here, and all the windows are barred.";
-            roomMap["Canyon View"].Description = "You are at the top of the Great Canyon on its south wall.";
-            roomMap["Forest"].Description = "This is a forest, with trees in all directions around you.";
-            roomMap["West of House"].Description = "This is an open field west of a white house, with a boarded front door.";
-            roomMap["Behind House"].Description = "You are behind the white house.\nIn one corner of the house there is a small window which is slightly ajar.";
-            roomMap["Dense Woods"].Description = "This is a dimly lit forest, with large trees all around.\nTo the east, there appears to be sunlight.";
-            roomMap["North of House"].Description = "You are facing the north side of a white house.\nThere is no door here, and all the windows are barred.";
-            roomMap["Clearing"].Description = "You are in a clearing, with a forest surrounding you on the west and south.";
+            // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
+            // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
+        }
+
+        // Create this enum to make the code more readable and easier to modify if changes occur.
+        private enum Fields
+        {
+            Name = 0,
+            Description
         }
     }
 }
