@@ -10,7 +10,7 @@ namespace Zork
         // By default, the DEBUG symbol is defined in debug builds and not defined in release builds.
         // Therefore, this code will only run in debug builds and will not be included in release builds, helping to improve performance in the release build.
         [Conditional("DEBUG")]
-        public static void IsTrue(bool expression, string message = null)
+        public static void IsTrue(bool expression, string message = "")
         {
             if (!expression)
             {
