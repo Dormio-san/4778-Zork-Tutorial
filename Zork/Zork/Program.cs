@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Zork
 {
@@ -15,43 +16,23 @@ namespace Zork
             get => rooms[currentLocation.row, currentLocation.column];
         }
 
-        // Create a dictionary that stores the name of each room and the room itself. The string room name is the key and the room object is the value.
-        // Doing this makes it easier to reference the rooms, making the code more readable and maintainable.
-        private static readonly Dictionary<string, Room> roomMap;
-
-        // Static constructor that runs before the Main method, ensuring that any code that needs the dictoinary gets it once it has already been populated.
-        static Program()
-        {            
-            roomMap = new Dictionary<string, Room>();
-            foreach (Room room in rooms)
-            {
-                // Searches the dictionary for the following key and overwrites the value with the one on the right.
-                // If the key is not found, it adds the key and value to the dictionary.
-                roomMap[room.Name] = room;
-
-                // Another way to add to the dictionary, but this will throw a System.ArgumentException if the key already exists.
-                // Either will work because we are starting with an empty dictionary, but the first way is safer.
-                //roomMap.Add(room.Name, room);
-            }
-        }
-
         // Tuple that holds the current location of the player.
         // More on tuples here: https://docs.microsoft.com/en-us/dotnet/csharp/tuples.
         private static (int row, int column) currentLocation = (1, 1);
 
         private static void Main(string[] args)
         {
-            // Set a default location for the rooms.txt file that cannot be changed.
-            const string defaultRoomsFilename = "Rooms.txt";
+            // Set a default location for the rooms.json file that cannot be changed.
+            const string defaultRoomsFilename = "Rooms.json";
 /*
 * To input a custom rooms text file, open your file explorer and find where your script files are located.
 * In this area, the Zork.csproj is also there. Once in this area, right click in the blank space and click "Open in Terminal."
 * Now, simply type "dotnet run filename" and click enter. For example, I'd type "dotnet run Rooms2.txt" then click enter
 */
-            // If the user enters an argument in the command line, use their inputted location for the rooms.txt file.
+            // If the user enters an argument in the command line, use their inputted location for the rooms.json file.
             // If the user didn't input a location, use the default one.
             string roomsFilename = (args.Length > 0 ? args[(int)CommandLineArgument.RoomsFilename] : defaultRoomsFilename);
-            InitializeRoomDescriptions(roomsFilename);
+            InitializeRooms(roomsFilename);
 
             Console.WriteLine($"Welcome to Zork!");
 
@@ -182,15 +163,15 @@ namespace Zork
         };
 
         // 2D array that holds the names of the rooms the player can be in.
-        private static readonly Room[,] rooms =
-        {
-            { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View") },
-            { new Room("Forest"), new Room("West of House"), new Room("Behind House"), },
-            { new Room("Dense Woods"), new Room("North of House"), new Room("Clearing") }
-        };
+        private static Room[,] rooms;
 
-        private static void InitializeRoomDescriptions(string roomsFilename)
-        {
+        // Deserialize the JSON file (read it) and store it in the rooms array, which is then used to populate the roomMap dictionary.
+        private static void InitializeRooms(string roomsFilename) => 
+            rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFilename));
+
+            ///Check out the difference in how much longer using a text file is compared to using JSON.
+            // Old way of doing above by using a text file and LINQ.
+            /*
             // Const variables that will not change for the delimiter and the expected number of fields.
             const string fieldDelimiter = "##";
             const int expectedFieldCount = 2;
@@ -207,32 +188,33 @@ namespace Zork
             {
                 roomMap[Name].Description = Description;
             }
+            */
 
+            /*
+            // Reads all of the lines in the text file and stores them in an array of strings.
+            string[] lines = File.ReadAllLines(roomsFilename);
 
-            //// Reads all of the lines in the text file and stores them in an array of strings.
-            //string[] lines = File.ReadAllLines(roomsFilename);
+            // Iterates through the array and does things for each line.
+            foreach (string line in lines)
+            {
+                // Splits the line into an array of strings based on the field delimiter. In this case, array index 0 is the name and array index 1 is the description.
+                string[] fields = line.Split(fieldDelimiter);
 
-            //// Iterates through the array and does things for each line.
-            //foreach (string line in lines)
-            //{
-            //    // Splits the line into an array of strings based on the field delimiter. In this case, array index 0 is the name and array index 1 is the description.
-            //    string[] fields = line.Split(fieldDelimiter);
+                // This ensures that the line has the expected number of fields. If it doesn't, it throws an exception.
+                if (fields.Length != expectedFieldCount)
+                {
+                    throw new InvalidDataException($"Invalid record: {line}");
+                }
 
-            //    // This ensures that the line has the expected number of fields. If it doesn't, it throws an exception.
-            //    if (fields.Length != expectedFieldCount)
-            //    {
-            //        throw new InvalidDataException($"Invalid record: {line}");
-            //    }
+                string name = fields[(int)Fields.Name];
+                string description = fields[(int)Fields.Description];
 
-            //    string name = fields[(int)Fields.Name];
-            //    string description = fields[(int)Fields.Description];
-
-            //    roomMap[name].Description = description;
-            //}
+                roomMap[name].Description = description;
+            }
+            */
 
             // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
             // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
-        }
 
         // Create this enum to make the code more readable and easier to modify if changes occur.
         private enum Fields

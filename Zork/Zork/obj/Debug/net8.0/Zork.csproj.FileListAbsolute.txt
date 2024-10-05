@@ -28,7 +28,6 @@ S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zor
 S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.genruntimeconfig.cache
 S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\ref\Zork.dll
 S:\GitHub\4778 Lab Assignments\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Rooms.txt
-C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Rooms.txt
 C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Zork.exe
 C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Zork.deps.json
 C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Zork.runtimeconfig.json
@@ -44,3 +43,8 @@ C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\refint\Zork.dll
 C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.pdb
 C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.genruntimeconfig.cache
 C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\ref\Zork.dll
+C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.csproj.AssemblyReference.cache
+C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\obj\Debug\net8.0\Zork.csproj.Up2Date
+C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Rooms.json
+C:\GitHub Projects\4778-Zork-Tutorial\Zork\Zork\bin\Debug\net8.0\Rooms2.json
