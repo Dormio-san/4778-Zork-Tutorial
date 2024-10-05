@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\maste\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\maste\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "S:\\GitHub\\4778 Lab Assignments\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
+      "projectUniqueName": "C:\\GitHub Projects\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
       "projectName": "Zork",
-      "projectPath": "S:\\GitHub\\4778 Lab Assignments\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
+      "projectPath": "C:\\GitHub Projects\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
       "packagesPath": "C:\\Users\\maste\\.nuget\\packages\\",
-      "outputPath": "S:\\GitHub\\4778 Lab Assignments\\4778-Zork-Tutorial\\Zork\\Zork\\obj\\",
+      "outputPath": "C:\\GitHub Projects\\4778-Zork-Tutorial\\Zork\\Zork\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\maste\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

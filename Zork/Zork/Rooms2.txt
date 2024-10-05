@@ -1,0 +1,9 @@
+Rocky Trail##You are on a trail with a few rocks.
+South of House##The south side of a white house facing you are. No door, and all the windows are barred.
+Canyon View##You are at the top of the Great Canyon. Do you wish to jump? There is water at the bottom!
+Forest##You are surrounded by a large forest full of beautiful nature.
+West of House##You are in a vast field to the west of a white house, with a boarded front door.
+Behind House##Behind the white house, in one of the corners, there is a small window which is slightly ajar. Rats??
+Dense Woods##The woods is packed with trees, blocking out a lot of the sunlight. There is sunlight to the east.
+North of House##You are facing the north side of a barred up white house that has no door. Break in?
+Clearing##In the clearing you bask in the sunlight. There is a forest surrounding you on the west and south.

@@ -41,7 +41,16 @@ namespace Zork
 
         private static void Main(string[] args)
         {
-            string roomsFilename = "Rooms.txt";
+            // Set a default location for the rooms.txt file that cannot be changed.
+            const string defaultRoomsFilename = "Rooms.txt";
+/*
+* To input a custom rooms text file, open your file explorer and find where your script files are located.
+* In this area, the Zork.csproj is also there. Once in this area, right click in the blank space and click "Open in Terminal."
+* Now, simply type "dotnet run filename" and click enter. For example, I'd type "dotnet run Rooms2.txt" then click enter
+*/
+            // If the user enters an argument in the command line, use their inputted location for the rooms.txt file.
+            // If the user didn't input a location, use the default one.
+            string roomsFilename = (args.Length > 0 ? args[(int)CommandLineArgument.RoomsFilename] : defaultRoomsFilename);
             InitializeRoomDescriptions(roomsFilename);
 
             Console.WriteLine($"Welcome to Zork!");
@@ -103,6 +112,10 @@ namespace Zork
                     case Commands.HELLO:
                         // If hello, greet the player.
                         Console.WriteLine("Why hello there user.");
+                        break;
+
+                    case Commands.BREAKIN:
+                        Console.WriteLine("You tried to break in but failed.");
                         break;
 
                     default:
@@ -172,7 +185,7 @@ namespace Zork
         private static readonly Room[,] rooms =
         {
             { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View") },
-            { new Room("Forest"), new Room("West of House"), new Room("Behind House") },
+            { new Room("Forest"), new Room("West of House"), new Room("Behind House"), },
             { new Room("Dense Woods"), new Room("North of House"), new Room("Clearing") }
         };
 
@@ -182,26 +195,40 @@ namespace Zork
             const string fieldDelimiter = "##";
             const int expectedFieldCount = 2;
 
-            // Reads all of the lines in the text file and stores them in an array of strings.
-            string[] lines = File.ReadAllLines(roomsFilename);
+            // A way to do what is below except using LINQ.
+            var roomQuery = from line in File.ReadLines(roomsFilename)
+                            let fields = line.Split(fieldDelimiter)
+                            where fields.Length == expectedFieldCount
+                            select (Name: fields[(int)Fields.Name],
+                                    Description: fields[(int)Fields.Description]);
 
-            // Iterates through the array and does things for each line.
-            foreach (string line in lines)
+            // Assigns the description to the corresponding name (key) in the dictionary.
+            foreach (var (Name, Description) in roomQuery)
             {
-                // Splits the line into an array of strings based on the field delimiter. In this case, array index 0 is the name and array index 1 is the description.
-                string[] fields = line.Split(fieldDelimiter);
-
-                // This ensures that the line has the expected number of fields. If it doesn't, it throws an exception.
-                if (fields.Length != expectedFieldCount)
-                {
-                    throw new InvalidDataException($"Invalid record: {line}");
-                }
-
-                string name = fields[(int)Fields.Name];
-                string description = fields[(int)Fields.Description];
-
-                roomMap[name].Description = description;
+                roomMap[Name].Description = Description;
             }
+
+
+            //// Reads all of the lines in the text file and stores them in an array of strings.
+            //string[] lines = File.ReadAllLines(roomsFilename);
+
+            //// Iterates through the array and does things for each line.
+            //foreach (string line in lines)
+            //{
+            //    // Splits the line into an array of strings based on the field delimiter. In this case, array index 0 is the name and array index 1 is the description.
+            //    string[] fields = line.Split(fieldDelimiter);
+
+            //    // This ensures that the line has the expected number of fields. If it doesn't, it throws an exception.
+            //    if (fields.Length != expectedFieldCount)
+            //    {
+            //        throw new InvalidDataException($"Invalid record: {line}");
+            //    }
+
+            //    string name = fields[(int)Fields.Name];
+            //    string description = fields[(int)Fields.Description];
+
+            //    roomMap[name].Description = description;
+            //}
 
             // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
             // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
@@ -212,6 +239,13 @@ namespace Zork
         {
             Name = 0,
             Description
+        }
+
+        // Enum for the location of the text file that the user can input.
+        // Doing this helps prevent magic numbers.
+        private enum CommandLineArgument
+        {
+            RoomsFilename = 0
         }
     }
 }

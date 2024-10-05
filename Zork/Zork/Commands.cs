@@ -11,6 +11,7 @@ namespace Zork
         EAST,
         WEST,
         UNKNOWN,
-        HELLO
+        HELLO,
+        BREAKIN
     }
 }
