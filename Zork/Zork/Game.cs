@@ -29,13 +29,13 @@ namespace Zork
         private bool mIsRunning;
         private bool mIsRestarting;
 
+        public Game() => CommandManager = new CommandManager();
+
         public Game(World world, Player player)
         {
             World = world;
             Player = player;
         }
-
-        public Game() => CommandManager = new CommandManager();
 
         public static void Start(string gameFilename)
         {
@@ -44,7 +44,7 @@ namespace Zork
                 throw new FileNotFoundException("Expected the game file to exist.", gameFilename);
             }
 
-            while (Instance is null || Instance.mIsRestarting)
+            while (Instance == null || Instance.mIsRestarting)
             {
                 Instance = Load(gameFilename);
                 Instance.LoadCommands();
@@ -58,7 +58,7 @@ namespace Zork
         {
             mIsRunning = true;
             Room previousRoom = null;
-            while (IsRunning)
+            while (mIsRunning)
             {
                 Console.WriteLine(Player.Location);
                 if (previousRoom != Player.Location)
