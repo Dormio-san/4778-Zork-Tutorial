@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub Projects\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
+      "projectUniqueName": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
       "projectName": "Zork",
-      "projectPath": "C:\\GitHub Projects\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
+      "projectPath": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.csproj",
       "packagesPath": "C:\\Users\\maste\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub Projects\\4778-Zork-Tutorial\\Zork\\Zork\\obj\\",
+      "outputPath": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maste\\AppData\\Roaming\\NuGet\\NuGet.Config",
