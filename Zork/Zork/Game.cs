@@ -6,7 +6,7 @@ namespace Zork
 {
     public class Game
     {
-        public World World { get; private set; }
+        public World World { get; set; }
 
         [JsonIgnore]
         public Player Player { get; private set; }
@@ -14,10 +14,35 @@ namespace Zork
         [JsonIgnore]
         private bool IsRunning { get; set; }
 
+        [JsonIgnore]
+        private CommandManager CommandManager { get; }
+
         public Game(World world, Player player)
         {
             World = world;
             Player = player;
+        }
+
+        public Game()
+        {
+            Command[] commands =
+            {
+                new Command("LOOK", new string[] { "LOOK", "L" },
+                    (game, commandContext) => Console.WriteLine(game.Player.Location.Description)),
+
+                new Command("QUIT", new string[] { "QUIT", "Q", "EXIT" },
+                    (game, commandContext) => game.IsRunning = false),
+
+                new Command("NORTH", new string[] { "NORTH", "N", "UP", "U" }, MovementControls.North),
+
+                new Command("SOUTH", new string[] { "SOUTH", "S", "DOWN", "D" }, MovementControls.South),
+
+                new Command("EAST", new string[] { "EAST", "E", "RIGHT", "R" }, MovementControls.East),
+
+                new Command("WEST", new string[] { "WEST", "W", "LEFT", "L" }, MovementControls.West)
+            };
+
+            CommandManager = new CommandManager(commands);
         }
 
         public void Run()
@@ -30,61 +55,22 @@ namespace Zork
                 if (previousRoom != Player.Location)
                 {
                     // If the player has moved to a new room, print the description of the new room.
-                    Console.WriteLine(Player.Location.Description);
+                    CommandManager.PerformCommand(this, "LOOK");
                     previousRoom = Player.Location;
                 }
 
                 // Ask for input. The > helps convey to the player that they need to input something.
                 Console.Write("\n> ");
 
-                // Reads the input from the user and removes any leading or trailing white space.
-                Commands command = ToCommand(Console.ReadLine().Trim());
-
-                // Switch statement that checks the command and responds accordingly.
-                switch (command)
+                if (CommandManager.PerformCommand(this, Console.ReadLine().Trim()))
                 {
-                    case Commands.QUIT:
-                        // If quit, thank the player for playing and exit the game.
-                        //Console.WriteLine("Thank you for playing!\a");
-                        IsRunning = false;
-                        break;
-
-                    case Commands.LOOK:
-                        // If look, print the description of the current location.
-                        Console.WriteLine(Player.Location.Description);
-                        break;
-
-                    case Commands.NORTH:
-                    case Commands.SOUTH:
-                    case Commands.EAST:
-                    case Commands.WEST:
-                        // If the player was not able to move, write the following string.
-                        Directions direction = Enum.Parse<Directions>(command.ToString(), true);
-                        if (!Player.Move(direction))
-                        {
-                            Console.WriteLine("The way is shut!");
-                        }
-                        else
-                        {
-                            // They were able to move, so print the direction they moved.
-                            Console.WriteLine($"You moved {command.ToString().ToLower()}.");
-                        }
-                        break;
-
-                    case Commands.HELLO:
-                        // If hello, greet the player.
-                        Console.WriteLine("Why hello there user.");
-                        break;
-
-                    case Commands.BREAKIN:
-                        Console.WriteLine("You tried to break in but failed.");
-                        break;
-
-                    default:
-                        // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
-                        // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
-                        Console.WriteLine("I don't recognise that command.\a\nUser...");
-                        break;
+                    Player.Moves++;
+                }
+                else
+                {
+                    // Using \n puts the following text on a new line. The \n is called an escape sequence and there are a number of them in C#.
+                    // Check them out on the dcoumentation page here: https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170&viewFallbackFrom=vs-2019.
+                    Console.WriteLine("I don't recognise that command.\a\nUser...");
                 }
             }
         }
@@ -96,10 +82,5 @@ namespace Zork
 
             return game;
         }
-
-        // Input a string and try to parse through the commands enum to see if we find a matching command.
-        // If we do, return the command. If we don't, return the UNKNOWN command.
-        private static Commands ToCommand(string commandString) =>
-            Enum.TryParse<Commands>(commandString, true, out Commands result) ? result : Commands.UNKNOWN;
     }
 }
