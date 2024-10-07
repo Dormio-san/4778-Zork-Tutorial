@@ -18,10 +18,12 @@ string[] responses = new string[]
     "Hey!",
     "Howdy!",
     "Yo!",
-    "Heyo!"
+    "Heyo!",
+    "Ello governor!",
+    "Good morning Vietnam!"
 };
 
-var command = new Command("HELLO", new string[] { "HELLO", "HI", "HEY", "HOWDY", "YO", "HEYO", "HEYA", "WHAT'S UP", "WAZ UP", "WHAT UP" },
+var command = new Command("HELLO", new string[] { "HELLO", "HI", "HEY", "HOWDY", "YO", "HEYO", "HEYA", "WHAT'S UP", "WAZ UP", "WHAT UP", "ELLO" },
     (game, commandContext) =>
     {
         string selectedResponse = responses[Game.Random.Next(responses.Length)];

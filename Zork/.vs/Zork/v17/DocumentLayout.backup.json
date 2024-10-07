@@ -58,24 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Quit.cs",
-              "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Quit.cs",
-              "RelativeDocumentMoniker": "Zork\\Quit.cs",
-              "ToolTip": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Quit.cs",
-              "RelativeToolTip": "Zork\\Quit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:10:53.361Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -162,9 +149,22 @@
               "RelativeDocumentMoniker": "Zork\\Scripts\\Hello.csx",
               "ToolTip": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Scripts\\Hello.csx",
               "RelativeToolTip": "Zork\\Scripts\\Hello.csx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAB7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAACGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-10-07T03:00:14.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Quit.cs",
+              "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Quit.cs",
+              "RelativeDocumentMoniker": "Zork\\Quit.cs",
+              "ToolTip": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Quit.cs",
+              "RelativeToolTip": "Zork\\Quit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T04:10:53.361Z",
               "EditorCaption": ""
             },
             {

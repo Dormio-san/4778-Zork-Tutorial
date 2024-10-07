@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|c:\\github projects\\4778 labs\\4778-zork-tutorial\\zork\\zork\\movementcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|solutionrelative:zork\\movementcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|c:\\github projects\\4778 labs\\4778-zork-tutorial\\zork\\zork\\scripts\\hello.csx||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|solutionrelative:zork\\scripts\\hello.csx||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|solutionrelative:zork\\commandmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|c:\\github projects\\4778 labs\\4778-zork-tutorial\\zork\\zork\\movementcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|solutionrelative:zork\\movementcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|c:\\github projects\\4778 labs\\4778-zork-tutorial\\zork\\zork\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8AC5FED-B836-462E-A021-E9D8B7B67EB3}|Zork\\Zork.csproj|solutionrelative:zork\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Sup.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Sup.cs",
               "RelativeDocumentMoniker": "Zork\\Sup.cs",
@@ -74,12 +74,11 @@
               "RelativeToolTip": "Zork\\Sup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:10:23.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T04:10:23.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Game.cs",
               "RelativeDocumentMoniker": "Zork\\Game.cs",
@@ -87,24 +86,24 @@
               "RelativeToolTip": "Zork\\Game.cs",
               "ViewState": "AgIAAJIAAAAAAAAAAAAQwDwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T02:01:06.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T02:01:06.666Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "MovementCommands.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\MovementCommands.cs",
               "RelativeDocumentMoniker": "Zork\\MovementCommands.cs",
               "ToolTip": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\MovementCommands.cs",
               "RelativeToolTip": "Zork\\MovementCommands.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T02:38:01.599Z"
+              "WhenOpened": "2024-10-07T02:38:01.599Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Program.cs",
               "RelativeDocumentMoniker": "Zork\\Program.cs",
@@ -112,12 +111,11 @@
               "RelativeToolTip": "Zork\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T19:08:41.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T19:08:41.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Zork2.json",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Zork2.json",
               "RelativeDocumentMoniker": "Zork\\Zork2.json",
@@ -125,12 +123,11 @@
               "RelativeToolTip": "Zork\\Zork2.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-07T03:01:25.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T03:01:25.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Zork.json",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Zork.json",
               "RelativeDocumentMoniker": "Zork\\Zork.json",
@@ -138,25 +135,24 @@
               "RelativeToolTip": "Zork\\Zork.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-06T15:31:39.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T15:31:39.567Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Hello.csx",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Scripts\\Hello.csx",
               "RelativeDocumentMoniker": "Zork\\Scripts\\Hello.csx",
               "ToolTip": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Scripts\\Hello.csx",
               "RelativeToolTip": "Zork\\Scripts\\Hello.csx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAACGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-10-07T03:00:14.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Quit.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Quit.cs",
               "RelativeDocumentMoniker": "Zork\\Quit.cs",
@@ -164,12 +160,11 @@
               "RelativeToolTip": "Zork\\Quit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:10:53.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T04:10:53.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CommandManager.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\CommandManager.cs",
               "RelativeDocumentMoniker": "Zork\\CommandManager.cs",
@@ -193,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Room.cs",
               "DocumentMoniker": "C:\\GitHub Projects\\4778 Labs\\4778-Zork-Tutorial\\Zork\\Zork\\Room.cs",
               "RelativeDocumentMoniker": "Zork\\Room.cs",
@@ -201,8 +196,7 @@
               "RelativeToolTip": "Zork\\Room.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAIwCsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T15:32:54.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T15:32:54.016Z"
             },
             {
               "$type": "Document",
